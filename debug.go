@@ -54,7 +54,7 @@ func bindata_read(path, name string) ([]byte, error) {
 func writeDebugAsset(w io.Writer, asset *Asset) error {
 	_, err := fmt.Fprintf(w, `
 // %s reads file data from disk.
-// It panics if something went wrong in the process.
+// It returns error on failure.
 func %s() ([]byte, error) {
 	return bindata_read(
 		%q,
